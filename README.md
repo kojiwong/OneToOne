@@ -24,7 +24,7 @@ All have the password: 12345678
 owner1 has all the prepopulated calendars and invitee1 and invitee2 have responded to some.
 
 
-## Urls 
+## URLs 
 register
 http://localhost:3000/register
 
