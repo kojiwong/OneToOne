@@ -4,7 +4,7 @@ import AccordionActions from '@mui/material/AccordionActions';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Typography, Grid, makeStyles, Paper, Button, Box, Checkbox } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 import axios from 'axios';
 import { API_URL, handleCancel } from '../../constants';
 import { AuthContext } from '../../context/AuthContext';
@@ -20,15 +20,7 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.tz.setDefault('America/New_York');
 
-const useStyles = makeStyles((theme) => ({
-  centerGrid: {
-    display: 'flex', 
-    justifyContent: 'center'
-  }
-}))
-
 export default function CalendarAccordian({calendar, ownerInfo, isAccepted}) {
-  const classes = useStyles();
   const { accessToken } = useContext(AuthContext);
   const [eventsList, setEventsList] = useState([]);
   const [checkedEvents, setCheckedEvents] = useState([]);
@@ -36,30 +28,31 @@ export default function CalendarAccordian({calendar, ownerInfo, isAccepted}) {
   const [userId, setUserId] = useState(null);
 
   useEffect(() => {
-    fetchCalendarEvents();
-    // Add any additional logic you want to perform after eventsList changes
-  }, [accessToken]); // Include rerender in the dependencies array
-
-  const fetchCalendarEvents = async () => {
-    try {
-      const userResponse = await axios.get(API_URL + 'users/profile/view/', {
-        headers: {
-          Authorization: `Bearer ${accessToken}`
-        }
-      });
-      const userData = userResponse.data;
-      var currUserId = await getUserId(userData.email);
-      setUserId(await getUserId(userData.email));
-      const response = await axios.get(API_URL + `calendars/${calendar.calendar_id}/get_events/${currUserId}/`, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`
-        }
-      })
-      setEventsList(response.data.events)
-    } catch (error) {
-      console.error('Error fetching calendar events: ', error);
+    const fetchCalendarEvents = async () => {
+      try {
+        const userResponse = await axios.get(API_URL + 'users/profile/view/', {
+          headers: {
+            Authorization: `Bearer ${accessToken}`
+          }
+        });
+        const userData = userResponse.data;
+        var currUserId = await getUserId(userData.email);
+        setUserId(await getUserId(userData.email));
+        const response = await axios.get(API_URL + `calendars/${calendar.calendar_id}/get_events/${currUserId}/`, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`
+          }
+        })
+        setEventsList(response.data.events)
+      } catch (error) {
+        console.error('Error fetching calendar events: ', error);
+      }
     }
-  }
+
+    fetchCalendarEvents();
+  }, [accessToken]);
+
+
 
   const getUserId = async (email) => {
     try {
@@ -212,16 +205,16 @@ export default function CalendarAccordian({calendar, ownerInfo, isAccepted}) {
             />
             {isAccepted ? (
               <Dialog
-              maxWidth={getSelectedEventIds().length == 1 ? "md" : "sm"}
-              dialogQuestion={getSelectedEventIds().length == 1 ? "Please Enter Your Availability" : "Please Select 1 Event to Edit"}
-              dialogText={getSelectedEventIds().length == 1 ? "Also rank your preference [High Preference (HP) or Low Preference (LP)]" : ""}
-              yesText={getSelectedEventIds().length == 1 ? "Save" : "Ok"}
-              noText={getSelectedEventIds().length == 1 ? "Cancel": ""}
-              onYes={getSelectedEventIds().length == 1 ? handleEditSave: handleCancel}
-              onNo={getSelectedEventIds().length == 1 ? handleCancel: () => console.log('edit on no')}
+              maxWidth={getSelectedEventIds().length === 1 ? "md" : "sm"}
+              dialogQuestion={getSelectedEventIds().length === 1 ? "Please Enter Your Availability" : "Please Select 1 Event to Edit"}
+              dialogText={getSelectedEventIds().length === 1 ? "Also rank your preference [High Preference (HP) or Low Preference (LP)]" : ""}
+              yesText={getSelectedEventIds().length === 1 ? "Save" : "Ok"}
+              noText={getSelectedEventIds().length === 1 ? "Cancel": ""}
+              onYes={getSelectedEventIds().length === 1 ? handleEditSave: handleCancel}
+              onNo={getSelectedEventIds().length === 1 ? handleCancel: () => console.log('edit on no')}
               buttonText="Edit Selected Availability"
               additionalField={
-                getSelectedEventIds().length == 1 ? (
+                getSelectedEventIds().length === 1 ? (
                 <>
                 <BasicDateTimeRangePicker handleESave={handleEventSave} name={ownerInfo[calendar.owner]} calendar_id={calendar.calendar_id} calendar={calendar} userId={userId} eventId={getSelectedEventIds()[0]}/>
                 </>
