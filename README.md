@@ -45,5 +45,3 @@ http://localhost:3000/profile
 
 
 Note: if you get 401 error you may have to manually go to the login URL again
-
-
