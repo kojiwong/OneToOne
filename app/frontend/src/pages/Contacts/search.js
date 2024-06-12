@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { TextField, IconButton } from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/Search';
+import { TextField, IconButton } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
 
 function SearchBar({ onSearch }) {
   const [query, setQuery] = useState('');
@@ -21,7 +21,7 @@ function SearchBar({ onSearch }) {
         variant="outlined"
         style={{ flex: 1, marginRight: '8px' }}
       />
-      <IconButton type="submit" aria-label="search">
+      <IconButton type="submit" aria-label="search" size="large">
         <SearchIcon />
       </IconButton>
     </form>

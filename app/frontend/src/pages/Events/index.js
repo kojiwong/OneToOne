@@ -7,7 +7,7 @@ import PrimaryAppBar from '../../components/appbar';
 
 import Calendar from "./calendar"
 import StatusCard from './statusCard';
-import { Grid } from '@material-ui/core';
+import { Grid } from '@mui/material';
 
 const Events = ({ calendar })  => {
   const { accessToken } = useContext(AuthContext);

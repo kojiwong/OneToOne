@@ -3,9 +3,10 @@ import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { LocalizationProvider, DatePicker } from '@mui/x-date-pickers/';
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
-import {IconButton, Typography, useMediaQuery, makeStyles, Container, Grid,} from '@material-ui/core';
-import EditIcon from '@material-ui/icons/Edit';
-import SaveIcon from '@material-ui/icons/Save';
+import { IconButton, Typography, useMediaQuery, Container, Grid } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import EditIcon from '@mui/icons-material/Edit';
+import SaveIcon from '@mui/icons-material/Save';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex', 
         flexDirection: 'row',
-        [theme.breakpoints.down('sm')]: {
+        [theme.breakpoints.down('md')]: {
             flexDirection: 'column', // Change flex direction to column on screens smaller than xs
         },
     }, 
@@ -34,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
         margin: '5px 10px',
         display: 'flex', 
         alignItems: 'center',
-        [theme.breakpoints.down('sm')]: {
+        [theme.breakpoints.down('md')]: {
             display: 'none'
         },
     },
@@ -124,104 +125,104 @@ export default function BasicDateTimeRangePicker({ handleESave, name, calendar_i
     }
     
   return (
-    <div className={classes.root}>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DemoContainer components={['DateTimePicker']}>
-                {isEditMode ? (
-                    <div className={classes.dateTimePicker}>
-                    <DateTimePicker 
-                        label={"Start Date Time"}
-                        value={dayjs(startDateTime) ? dayjs(dayjs.tz(startDateTime).format('YYYY-MM-DD HH:mm')): null}
-                        onChange={handleStartDateTimeChange} 
-                        minDate={calendarStartDate} 
-                        maxDate={calendarEndDate}
-                        timezone="America/New_York"
-                    />
-                    <Typography className={classes.errorText}>{startDateTime == null ? 'Please enter a start date time' : ""}</Typography>
-                    </div>
-                ) : (
-                    <DateTimePicker 
-                        disabled 
-                        label={startDateTime ? dayjs.tz(startDateTime).format('YYYY-MM-DD HH:mm'): "Start Date Time"}
-                        onChange={handleStartDateTimeChange} 
-                        minDate={calendarStartDate} 
-                        maxDate={calendarEndDate}
-                        timezone="America/New_York"
-                    />
-                )}
-            </DemoContainer>
-        </LocalizationProvider>
-        <Typography className={classes.dash}>-</Typography>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DemoContainer components={['DateTimePicker']}>
-                {isEditMode ? (
-                    <div className={classes.dateTimePicker}>
-                    <DateTimePicker 
-                        label={"End Date Time"} 
-                        value={dayjs.tz(endDateTime) ? dayjs.tz(endDateTime): null}
-                        onChange={handleEndDateTimeChange} 
-                        minDate={calendarStartDate} 
-                        maxDate={calendarEndDate}
-                        timezone="America/New_York"
-                    />
-                    <Typography className={classes.errorText}>{endDateTime == null ? 'Please enter a end date time' : startDateTime >= endDateTime ? "Please enter a end date time later than the start date time" : ""}</Typography>
-                    </div>
-                ) : (
-                    <DateTimePicker 
-                        disabled 
-                        label={endDateTime? dayjs.tz(endDateTime).format('YYYY-MM-DD HH:mm'): "End Date Time"} 
-                        onChange={handleEndDateTimeChange} 
-                        minDate={calendarStartDate} 
-                        maxDate={calendarEndDate}
-                        timezone="America/New_York"
-                    />
-                )}        
-            </DemoContainer>
-        </LocalizationProvider>
-        {isEditMode ? (
-            <FormControl sx={{ m: 1, minWidth: 80 }}>
-            <InputLabel>Preference</InputLabel>
-            <Select
+      <div className={classes.root}>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DemoContainer components={['DateTimePicker']}>
+                  {isEditMode ? (
+                      <div className={classes.dateTimePicker}>
+                      <DateTimePicker 
+                          label={"Start Date Time"}
+                          value={dayjs(startDateTime) ? dayjs(dayjs.tz(startDateTime).format('YYYY-MM-DD HH:mm')): null}
+                          onChange={handleStartDateTimeChange} 
+                          minDate={calendarStartDate} 
+                          maxDate={calendarEndDate}
+                          timezone="America/New_York"
+                      />
+                      <Typography className={classes.errorText}>{startDateTime == null ? 'Please enter a start date time' : ""}</Typography>
+                      </div>
+                  ) : (
+                      <DateTimePicker 
+                          disabled 
+                          label={startDateTime ? dayjs.tz(startDateTime).format('YYYY-MM-DD HH:mm'): "Start Date Time"}
+                          onChange={handleStartDateTimeChange} 
+                          minDate={calendarStartDate} 
+                          maxDate={calendarEndDate}
+                          timezone="America/New_York"
+                      />
+                  )}
+              </DemoContainer>
+          </LocalizationProvider>
+          <Typography className={classes.dash}>-</Typography>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DemoContainer components={['DateTimePicker']}>
+                  {isEditMode ? (
+                      <div className={classes.dateTimePicker}>
+                      <DateTimePicker 
+                          label={"End Date Time"} 
+                          value={dayjs.tz(endDateTime) ? dayjs.tz(endDateTime): null}
+                          onChange={handleEndDateTimeChange} 
+                          minDate={calendarStartDate} 
+                          maxDate={calendarEndDate}
+                          timezone="America/New_York"
+                      />
+                      <Typography className={classes.errorText}>{endDateTime == null ? 'Please enter a end date time' : startDateTime >= endDateTime ? "Please enter a end date time later than the start date time" : ""}</Typography>
+                      </div>
+                  ) : (
+                      <DateTimePicker 
+                          disabled 
+                          label={endDateTime? dayjs.tz(endDateTime).format('YYYY-MM-DD HH:mm'): "End Date Time"} 
+                          onChange={handleEndDateTimeChange} 
+                          minDate={calendarStartDate} 
+                          maxDate={calendarEndDate}
+                          timezone="America/New_York"
+                      />
+                  )}        
+              </DemoContainer>
+          </LocalizationProvider>
+          {isEditMode ? (
+              <FormControl sx={{ m: 1, minWidth: 80 }}>
+              <InputLabel>Preference</InputLabel>
+              <Select
+                value={preference}
+                onChange={handlePreferenceChange}
+                autoWidth
+                label="Preference"
+              >
+      
+                <MenuItem value={'HP'}>HP</MenuItem>
+                <MenuItem value={'LP'}>LP</MenuItem>
+              </Select>
+            </FormControl>
+          ) : (
+              <FormControl sx={{ m: 1, minWidth: 80 }} disabled>
+              <InputLabel>Preference</InputLabel>
+              <Select
               value={preference}
               onChange={handlePreferenceChange}
               autoWidth
               label="Preference"
-            >
-    
+              >
               <MenuItem value={'HP'}>HP</MenuItem>
               <MenuItem value={'LP'}>LP</MenuItem>
-            </Select>
+              </Select>
           </FormControl>
-        ) : (
-            <FormControl sx={{ m: 1, minWidth: 80 }} disabled>
-            <InputLabel>Preference</InputLabel>
-            <Select
-            value={preference}
-            onChange={handlePreferenceChange}
-            autoWidth
-            label="Preference"
-            >
-            <MenuItem value={'HP'}>HP</MenuItem>
-            <MenuItem value={'LP'}>LP</MenuItem>
-            </Select>
-        </FormControl>
-        )}
-        <IconButton
-            edge="end"
-            aria-label={isEditMode ? `save` : `edit`}
-            onClick={handleEventSave}
-            >
-            <div>
-            {isEditMode ? <SaveIcon /> : <EditIcon />} {/* Render SaveIcon or EditIcon based on edit mode */}
-            {isEditMode && checkAllFieldsFilled() == false ? (
-                <Typography className={classes.errorText}>{'Please fill all fields'}</Typography>
-            ) : (
-                <></>
-            )
-            }
-            </div>
+          )}
+          <IconButton
+              edge="end"
+              aria-label={isEditMode ? `save` : `edit`}
+              onClick={handleEventSave}
+              size="large">
+              <div>
+              {isEditMode ? <SaveIcon /> : <EditIcon />} {/* Render SaveIcon or EditIcon based on edit mode */}
+              {isEditMode && checkAllFieldsFilled() == false ? (
+                  <Typography className={classes.errorText}>{'Please fill all fields'}</Typography>
+              ) : (
+                  <></>
+              )
+              }
+              </div>
 
-        </IconButton>
-    </div>
+          </IconButton>
+      </div>
   );
 }

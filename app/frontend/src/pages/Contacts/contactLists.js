@@ -5,7 +5,8 @@ import Dialog from '../../components/dialog';
 import SelectCalendar from './selectCalendar';
 import axios from 'axios';
 import { API_URL, handleCancel } from '../../constants';
-import { TextField, Typography, makeStyles } from '@material-ui/core';
+import { TextField } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { AuthContext } from '../../context/AuthContext';
 
 const useStyles = makeStyles((theme) => ({

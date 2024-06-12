@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
+import Typography from '@mui/material/Typography';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 import PrimaryAppBar from '../../components/appbar';
 import CustomTextField from './textfield';
-import TextField from '@material-ui/core/TextField'; // Import TextField from Material-UI
+import TextField from '@mui/material/TextField'; // Import TextField from Material-UI
 import axios from 'axios';
 import { API_URL } from '../../constants';
 import { useContext } from 'react';

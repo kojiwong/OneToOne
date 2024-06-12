@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import MoreIcon from '@material-ui/icons/MoreVert';
+import makeStyles from '@mui/styles/makeStyles';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import MenuItem from '@mui/material/MenuItem';
+import Menu from '@mui/material/Menu';
+import MoreIcon from '@mui/icons-material/MoreVert';
 import { Link } from 'react-router-dom';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import Avatar from './avatar';
 import axios from 'axios';
 import { API_URL } from '../constants';
@@ -123,7 +123,7 @@ export default function PrimaryAppBar() {
             edge="end"
             aria-label="account of current user"
             color="inherit"
-          >
+            size="large">
             <Avatar fname={fname} lname={lname} />
           </IconButton>
           Profile
@@ -133,9 +133,9 @@ export default function PrimaryAppBar() {
         <IconButton
           edge="end"
           aria-label="logout"
-          color="inherit"
           // onClick={handleLogout}
-        >
+          color="inherit"
+          size="large">
           <ExitToAppIcon />
         </IconButton>
         Logout
@@ -165,7 +165,7 @@ export default function PrimaryAppBar() {
                 edge="end"
                 aria-label="account of current user"
                 color="inherit"
-              >
+                size="large">
                 <Avatar fname={fname} lname={lname} />
               </IconButton>
             </Link>
@@ -174,7 +174,7 @@ export default function PrimaryAppBar() {
               aria-label="logout"
               color="inherit"
               onClick={handleLogout}
-            >
+              size="large">
               <ExitToAppIcon />
             </IconButton>
           </div>
@@ -185,7 +185,7 @@ export default function PrimaryAppBar() {
               aria-haspopup="true"
               onClick={handleMobileMenuOpen}
               color="inherit"
-            >
+              size="large">
               <MoreIcon />
             </IconButton>
           </div>

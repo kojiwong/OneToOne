@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
+import Typography from '@mui/material/Typography';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 import PrimaryAppBar from '../../components/appbar';
 import axios from 'axios';
 import { API_URL } from '../../constants';
 // import { useAuth } from "../../hooks/useAuth";
-import { Button } from '@material-ui/core';
+import { Button } from '@mui/material';
 import { AuthContext } from '../../context/AuthContext';
 
 

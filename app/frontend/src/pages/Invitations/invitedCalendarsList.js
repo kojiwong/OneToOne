@@ -1,5 +1,6 @@
 import React, { useEffect, useContext, useState } from 'react';
-import { makeStyles, Typography, Paper } from '@material-ui/core';
+import { Typography, Paper } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import axios from 'axios';
 import { API_URL } from '../../constants';
 import { AuthContext } from '../../context/AuthContext';

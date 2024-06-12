@@ -4,7 +4,7 @@ import AccordionActions from '@mui/material/AccordionActions';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { makeStyles } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
 import axios from 'axios';
 import { API_URL, handleCancel } from '../../constants';
 import { AuthContext } from '../../context/AuthContext';

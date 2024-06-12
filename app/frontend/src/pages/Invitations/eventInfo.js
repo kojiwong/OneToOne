@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import {Typography, Paper, Checkbox, Grid} from '@material-ui/core';
+import withStyles from '@mui/styles/withStyles';
+import {Typography, Paper, Checkbox, Grid} from '@mui/material';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';

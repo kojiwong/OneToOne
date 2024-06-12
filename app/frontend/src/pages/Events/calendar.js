@@ -3,7 +3,7 @@ import axios from 'axios';
 import { API_URL } from '../../constants';
 import { DayPilotCalendar, DayPilot } from "@daypilot/daypilot-lite-react";
 import { AuthContext } from '../../context/AuthContext';
-import Button from '@material-ui/core/Button';
+import Button from '@mui/material/Button';
 
 
 

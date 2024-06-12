@@ -1,5 +1,6 @@
 import React from 'react';
-import { Typography, Card, CardContent, makeStyles, Box } from '@material-ui/core';
+import { Typography, Card, CardContent, Box } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { Link } from 'react-router-dom';
 import CalendarCard from './calendarCard';
 

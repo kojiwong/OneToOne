@@ -2,7 +2,7 @@ import { API_URL } from "../../constants";
 import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from '../../context/AuthContext';
-import { Grid } from "@material-ui/core";
+import { Grid } from "@mui/material";
 import bellIcon from './bell.png';
 
 

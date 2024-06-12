@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Typography, Card, CardContent } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
+import { Typography, Card, CardContent } from '@mui/material';
+import withStyles from '@mui/styles/withStyles';
 
 
 const styles = theme => ({

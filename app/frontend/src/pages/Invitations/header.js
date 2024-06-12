@@ -1,5 +1,7 @@
 import React from 'react';
-import { Typography, Grid, makeStyles } from '@material-ui/core';
+import { Typography, Grid } from '@mui/material';
+
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) => ({
     centerGrid: {

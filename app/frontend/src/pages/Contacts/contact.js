@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import {Typography, Box, Paper, Checkbox} from '@material-ui/core';
+import withStyles from '@mui/styles/withStyles';
+import {Typography, Box, Paper, Checkbox} from '@mui/material';
 import Avatar from '../../components/avatar';
 
 const styles = theme => ({

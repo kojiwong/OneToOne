@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import IconButton from '@material-ui/core/IconButton';
-import EditIcon from '@material-ui/icons/Edit';
-import SaveIcon from '@material-ui/icons/Save';
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
-import TextField from '@material-ui/core/TextField';
+import IconButton from '@mui/material/IconButton';
+import EditIcon from '@mui/icons-material/Edit';
+import SaveIcon from '@mui/icons-material/Save';
+import Typography from '@mui/material/Typography';
+import Paper from '@mui/material/Paper';
+import TextField from '@mui/material/TextField';
 
 const CustomTextField = ({ field, value, isEditMode, handleEdit, handleUpdateField, onTextChange, handleSave }) => {
   const [textValue, setTextValue] = useState('');
@@ -41,7 +41,7 @@ const CustomTextField = ({ field, value, isEditMode, handleEdit, handleUpdateFie
           edge="end"
           aria-label={isEditMode(field) ? `save ${field}` : `edit ${field}`}
           onClick={handleSaveClick}
-        >
+          size="large">
           {isEditMode(field) ? <SaveIcon /> : <EditIcon />} {/* Render SaveIcon or EditIcon based on edit mode */}
         </IconButton>
       </div>
